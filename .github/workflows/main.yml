@@ -8,9 +8,9 @@ jobs:
 run: sudo apt-get install -y openjdk-17jdk   
         
         
-        
-          command: buildozer -v android debug
-      - name: Upload APK
+      
+command: buildozer -v android debug
+ - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: package
