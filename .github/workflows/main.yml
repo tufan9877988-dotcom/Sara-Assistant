@@ -4,11 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
+      - uses: actions/checkout@v1
+ run: sudo apt-get install -y openjdk-17jdk   
+        
+        
+        
           command: buildozer -v android debug
       - name: Upload APK
         uses: actions/upload-artifact@v4
