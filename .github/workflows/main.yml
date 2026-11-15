@@ -1,9 +1,18 @@
-Name: Build APK
-On: [push]
-Jobs: Build: Runs-on: Ubuntu-latest Steps: 
-- uses: Actions/checkout@v4 
-- name: Install Java run: sudo apt-get update && sudo apt-get install -y openjdk-17-jdk 
-- name: Install Buildozer run: Pip install buildozer 
-- name: Build APK run: buildozer -v android debug 
-- name: Upload APK uses: Actions/upload-artifact@v4 with: 
-Name: package Path: Output/*.apk
+name: Build APK
+on: [push]
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: Install Java
+run: sudo apt-get update && sudo apt-get install -y openjdk-17-jdk
+- name: Install Buildozer
+run: pip install buildozer
+- name: Build APK
+run: buildozer -v android debug
+- name: Upload APK
+uses: actions/upload-artifact@v4
+with:
+name: package
+path: output/*.apk
